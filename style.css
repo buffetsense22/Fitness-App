@@ -14,24 +14,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background 0.3s, color 0.3s;
   position: relative;
   overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ✨ STAR FIELD OVERLAY */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(#ffffff88 0.8px, transparent 0.8px);
+  background-image: radial-gradient(#ffffff88 1px, transparent 1px);
   background-size: 24px 24px;
   opacity: 0.2;
   z-index: 0;
   pointer-events: none;
 }
 
-/* 🌙 Optional Dark Mode */
 body.dark {
   background: radial-gradient(circle at bottom, #6d28d9 0%, #312e81 100%);
   color: #f9fafb;
@@ -91,7 +89,7 @@ p {
 }
 
 select, button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 1rem;
   border-radius: 0.75rem;
   border: 1px solid #d1d5db;
@@ -108,11 +106,13 @@ button {
   border: none;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 button:hover {
   background-color: #db2777;
+  transform: scale(1.02);
 }
 
 button:active {
@@ -130,4 +130,40 @@ button:active {
 body.dark #toggle-dark {
   background-color: #f59e0b;
   color: white;
+}
+
+/* Start Sequence */
+#start-sequence {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  animation: fadeInScale 1s ease;
+}
+
+.start-text {
+  animation: pulse 1s infinite;
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.quote-text {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #f3e8ff;
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
