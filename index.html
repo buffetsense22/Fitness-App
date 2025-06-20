@@ -6,18 +6,20 @@
   <title>Pocket Fitness</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#34d399" />
+  <meta name="theme-color" content="#f472b6" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
-    <h1>🏃 Pocket Fitness</h1>
+    <h1><span style="font-size:1.5rem;">🏃‍♂️</span> Pocket Fitness</h1>
+    
     <section id="steps-section">
       <h2>Steps: <span id="step-count">0</span></h2>
       <p id="step-info">Start walking and watch the count!</p>
     </section>
+
     <section id="workout-section">
       <h2>Workout Timer</h2>
       <select id="workout-select">
@@ -27,8 +29,10 @@
       <button onclick="startWorkout()">Start</button>
       <p id="timer-display">Ready</p>
     </section>
+
     <button id="toggle-dark">🌙 Toggle Dark Mode</button>
   </main>
+
   <script src="app.js"></script>
 </body>
 </html>
