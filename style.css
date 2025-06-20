@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Inter', sans-serif;
   background: radial-gradient(circle at top, #f9a8d4 0%, #c4b5fd 100%);
@@ -23,16 +24,22 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.12), transparent 60%),
+  background: 
+    radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.1), transparent 60%),
     radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.08), transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.1), transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.07), transparent 50%),
     url('https://www.transparenttextures.com/patterns/stardust.png');
   background-size: cover;
+  background-repeat: repeat;
+  animation: starDrift 60s linear infinite;
   opacity: 0.3;
   pointer-events: none;
 }
 
+@keyframes starDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: -500px -500px; }
+}
 
 body.dark {
   background: radial-gradient(circle at bottom, #6d28d9 0%, #312e81 100%);
