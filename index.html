@@ -14,7 +14,7 @@
 <body>
   <main>
     <h1><span style="font-size:1.5rem;">🏃‍♂️</span> Pocket Fitness</h1>
-    
+
     <section id="steps-section">
       <h2>Steps: <span id="step-count">0</span></h2>
       <p id="step-info">Start walking and watch the count!</p>
@@ -26,11 +26,18 @@
         <option value="30">Jumping Jacks (30s)</option>
         <option value="60">Squats (60s)</option>
       </select>
-      <button onclick="startWorkout()">Start</button>
+      <button id="start-btn" onclick="startWorkout()">Start Workout</button>
+
+      <div id="start-sequence" class="hidden">
+        <p class="start-text">Get Ready</p>
+        <p class="quote-text" id="quote-text"></p>
+      </div>
+
       <p id="timer-display">Ready</p>
     </section>
 
     <button id="toggle-dark">🌙 Toggle Dark Mode</button>
+    <audio id="start-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3dcfcfdb9f.mp3?filename=success-1-6297.mp3" preload="auto"></audio>
   </main>
 
   <script src="app.js"></script>
