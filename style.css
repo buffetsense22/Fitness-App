@@ -2,15 +2,17 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #f0f4f8;
+  background: #f9fafb;
   color: #1f2937;
-  padding: 1.5rem;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -20,34 +22,31 @@ body.dark {
 }
 
 main {
-  max-width: 500px;
-  margin: auto;
-  padding: 1.5rem;
-  border-radius: 1.5rem;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, color 0.3s;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+  transition: background 0.3s;
 }
 
 body.dark main {
   background: #1f2937;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 1rem;
   font-size: 2rem;
   color: #10b981;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 section {
   margin-bottom: 2rem;
   padding: 1rem;
-  background: #e5f9f5;
   border-radius: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: background 0.3s;
+  background: #f0fdf4;
 }
 
 body.dark section {
@@ -56,7 +55,7 @@ body.dark section {
 
 h2 {
   margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 #step-count {
@@ -65,16 +64,30 @@ h2 {
   color: #2563eb;
 }
 
+p {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+select, button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  margin-top: 0.5rem;
+}
+
+select {
+  width: 100%;
+}
+
 button {
   background-color: #10b981;
   color: white;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
   border: none;
-  border-radius: 0.75rem;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -82,20 +95,18 @@ button:hover {
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
-select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #cbd5e1;
-  font-size: 1rem;
+#toggle-dark {
+  background-color: #facc15;
+  color: #111;
+  border: 1px solid #e5e7eb;
+  display: block;
+  margin: 1rem auto 0;
 }
 
-#timer-display {
-  margin-top: 0.5rem;
-  font-weight: 500;
-  font-size: 1.1rem;
+body.dark #toggle-dark {
+  background-color: #f59e0b;
+  color: white;
 }
