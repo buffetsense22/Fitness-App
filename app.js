@@ -15,7 +15,7 @@ if (window.DeviceMotionEvent) {
   let lastY = null;
   window.addEventListener("devicemotion", (event) => {
     let y = event.accelerationIncludingGravity.y;
-    if (lastY !== null && Math.abs(y - lastY) > 1) {
+    if (lastY !== null && Math.abs(y - lastY) > 1.2) {
       steps++;
       document.getElementById("step-count").textContent = steps;
     }
