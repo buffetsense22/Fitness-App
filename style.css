@@ -132,25 +132,41 @@ body.dark #toggle-dark {
   color: white;
 }
 
-/* Start Sequence */
-#start-sequence {
-  font-size: 2.5rem;
+/* Modal Popup */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  color: #111827;
+  padding: 2rem;
+  border-radius: 1.5rem;
   text-align: center;
-  margin-top: 1rem;
-  animation: fadeInScale 1s ease;
+  max-width: 300px;
+  width: 90%;
+  animation: scaleIn 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
 
-.start-text {
-  animation: pulse 1s infinite;
-  color: #a855f7;
+.modal .start-text {
+  font-size: 2.5rem;
   font-weight: bold;
+  color: #a855f7;
+  margin-bottom: 1rem;
+  animation: pulse 1s infinite;
 }
 
-.quote-text {
+.modal .quote-text {
   font-size: 1rem;
-  margin-top: 0.5rem;
-  color: #f3e8ff;
-  opacity: 0.9;
+  color: #6b7280;
 }
 
 .hidden {
@@ -163,7 +179,12 @@ body.dark #toggle-dark {
   100% { transform: scale(1); opacity: 1; }
 }
 
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
