@@ -1,12 +1,5 @@
 let steps = 0;
 let workoutTimer;
-const quotes = [
-  "Push yourself. No one else is going to do it for you.",
-  "Sweat is just fat crying.",
-  "You don’t have to be extreme, just consistent.",
-  "Small steps every day.",
-  "No excuses. Just do it."
-];
 
 document.getElementById("toggle-dark").onclick = () => {
   document.body.classList.toggle("dark");
@@ -17,7 +10,7 @@ if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
 }
 
-// Step Counter (basic)
+// Step Counter
 if (window.DeviceMotionEvent) {
   let lastY = null;
   window.addEventListener("devicemotion", (event) => {
@@ -33,30 +26,37 @@ if (window.DeviceMotionEvent) {
 function startWorkout() {
   const seconds = parseInt(document.getElementById("workout-select").value);
   const timerDisplay = document.getElementById("timer-display");
-  const startSeq = document.getElementById("start-sequence");
-  const startText = startSeq.querySelector(".start-text");
-  const quoteText = document.getElementById("quote-text");
+
+  const modal = document.getElementById("workout-modal");
+  const modalCount = document.getElementById("modal-count");
+  const modalQuote = document.getElementById("modal-quote");
   const startSound = document.getElementById("start-sound");
 
-  clearInterval(workoutTimer);
-  startSeq.classList.remove("hidden");
-  timerDisplay.textContent = "";
-  quoteText.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  const quotes = [
+    "Push yourself. No one else is going to do it for you.",
+    "Sweat is just fat crying.",
+    "You don’t have to be extreme, just consistent.",
+    "Small steps every day.",
+    "No excuses. Just do it."
+  ];
+
+  modal.classList.remove("hidden");
+  modalQuote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 
   let count = 3;
-  startText.textContent = count;
+  modalCount.textContent = count;
 
   const countdown = setInterval(() => {
     count--;
     if (count > 0) {
-      startText.textContent = count;
+      modalCount.textContent = count;
     } else if (count === 0) {
-      startText.textContent = "Go!";
+      modalCount.textContent = "Go!";
       navigator.vibrate?.(150);
       startSound.play();
     } else {
       clearInterval(countdown);
-      startSeq.classList.add("hidden");
+      modal.classList.add("hidden");
 
       // Start actual timer
       let remaining = seconds;
